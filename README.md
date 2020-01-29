@@ -18,6 +18,8 @@ argument	 | Description
 
 The function will return a list containing a dataframe per package entered with columns as indicated by the `format` argument
 
+The function will also attempt to report when a package names has been misspelled or just the server is not reachable.
+If you are receiving warning messages please check either of these situations.
 
 
 ## Installation
