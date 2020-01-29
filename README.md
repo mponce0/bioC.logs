@@ -9,11 +9,12 @@ downloads as reported by http://bioconductor.org/packages/stats/.
 The main function of this package is called ```bioC_downloads```.
 The function accepts several arguments: `packages names`, `format` and `verbose`.
 
-packages names, is the name(s) of the package(s) you want to download the stats, for multiple package it should be a list of the packages names
-
-format  aceepts two options: "bioC" (default) will report the downloads as reported by bioconductor, ie. "Year Month Nb_of_distinct_IPs Nb_of_downloads"; or, "CRAN" will report as CRNA logs does, ie. "Date  Nb_of_downloads package_Name"
-
-verbose  is a boolean flag indicating whether to print information about the processes
+argument	 | Description
+-----------|---------------
+`packages names` | is the name(s) of the package(s) you want to download the stats, for multiple package it should be a list of the packages names
+`format`     | accepts two options: `"bioC"` (default) will report the downloads as reported by bioconductor, ie. *"Year Month Nb_of_distinct_IPs Nb_of_downloads"*; or, `"CRAN"` will report as CRAN logs does, ie. *"Date  Nb_of_downloads package_Name"*
+`verbose`    | is a boolean flag indicating whether to print information about the processes
+---------------------------
 
 The function will return a list containing a dataframe per package entered with columns as indicated by the `format` argument
 
@@ -47,6 +48,8 @@ reports from the BioConductor website on demand.
 
 ```
 bioC_downloads(c("ABarray","a4Classif"))
+
+bioC_downloads("edgeR",verbose=FALSE)
 
 bioC_downloads("edgeR",format="CRAN")
 ```
