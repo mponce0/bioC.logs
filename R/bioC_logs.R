@@ -6,6 +6,9 @@ bioC_downloads <- function(pckg=NULL, format="bioC", verbose=TRUE) {
 #'
 #' @return a list containing a dataframe per package entered with columns as indicated by the format argument
 #'
+#' @importFrom utils  read.table
+#' @export
+#'
 #' @examples
 #' bioC_downloads(c("ABarray","a4Classif"))
 #' bioC_downloads("edgeR",format="CRAN")
