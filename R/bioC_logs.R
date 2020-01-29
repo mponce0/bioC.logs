@@ -1,7 +1,7 @@
 bioC_downloads <- function(pckg=NULL, format="bioC", verbose=TRUE) {
 #' function to download logs from bioConductor stats
 #' @param  pckg  list of packages names
-#' @param  format  two options: "bioC" (default) will report the downloads as reported by bioconductor, ie. "Year Month Nb_of_distinct_IPs Nb_of_downloads"; or, "CRAN" will report as CRNA logs does, ie. "Date  Nb_of_downloads package_Name"
+#' @param  format  two options: "bioC" (default) will report the downloads as reported by bioconductor, ie. "Year Month Nb_of_distinct_IPs Nb_of_downloads"; or, "CRAN" will report as CRAN logs does, ie. "Date  Nb_of_downloads package_Name"
 #' @param  verbose  boolean flag indicating whether to print information about the processes...
 #'
 #' @return a list containing a dataframe per package entered with columns as indicated by the format argument
