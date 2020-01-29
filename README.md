@@ -53,5 +53,5 @@ bioC_downloads(c("ABarray","a4Classif"))
 
 bioC_downloads("edgeR",verbose=FALSE)
 
-bioC_downloads("edgeR",format="CRAN")
+edgeR.logs <- bioC_downloads("edgeR",format="CRAN")
 ```
