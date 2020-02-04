@@ -69,5 +69,6 @@ bioC_downloads("edgeR",verbose=FALSE)
 edgeR.logs <- bioC_downloads("edgeR",format="CRAN")
 # data is still returned in a list
 str(edgeR.logs)
+# access data from package
 edgeR.logs[[1]]
 ```
