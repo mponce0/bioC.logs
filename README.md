@@ -61,6 +61,7 @@ reports from the BioConductor website on demand.
 ```
 bioC_downloads(c("ABarray","a4Classif"))
 
+# the 'verbose' option allow you to turn off information reported by the function
 bioC_downloads("edgeR",verbose=FALSE)
 
 edgeR.logs <- bioC_downloads("edgeR",format="CRAN")
