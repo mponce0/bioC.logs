@@ -59,11 +59,13 @@ You will need an active internet connection, as bioC.logs will download the
 reports from the BioConductor website on demand.
 
 ```
+# it is possible to download multiple packages, the data will be returned in a list with one entry per package
 bioC_downloads(c("ABarray","a4Classif"))
 
 # the 'verbose' option allow you to turn off information reported by the function
 bioC_downloads("edgeR",verbose=FALSE)
 
+# setting format="CRAN", will structure the data "a-la-CRAN"
 edgeR.logs <- bioC_downloads("edgeR",format="CRAN")
 # data is still returned in a list
 str(edgeR.logs)
