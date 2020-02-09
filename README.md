@@ -1,5 +1,8 @@
 # bioC.logs
 
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/bioC.logs)](https://cran.r-project.org/package=bioC.logs)
+[![Downloads](https://cranlogs.r-pkg.org/badges/bioC.logs)](https://cran.r-project.org/package=bioC.logs)
+
 ## Introduction
 This package allows you to download the statistics of BioConductor packages'
 downloads as reported by http://bioconductor.org/packages/stats/.
