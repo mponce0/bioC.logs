@@ -46,7 +46,7 @@ If you are receiving warning messages please check either of these situations.
 
 For using the "bioC.logs" package, first you will need to install it.
 
-Thes table version can be downloaded from the CRAN repository:
+The stable version can be downloaded from the CRAN repository:
 ```
 install.packages("bioC.logs")
 ```
@@ -58,7 +58,11 @@ install.packages("devtools")
 
 # install bioC.logs
 devtools::install_github("mponce0/bioC.logs")
+```
 
+For using the package, either the stable or developmemnt version, just load it
+using the library function:
+```
 # load bioC.logs
 library(bioC.logs)
 ```
