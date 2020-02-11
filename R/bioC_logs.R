@@ -100,6 +100,11 @@ bioC_downloads <- function(pckg=NULL, format="bioC", from=NULL,to=NULL, when=NUL
 		date.range <- checkValidDates(from,to)
 	}
 
+	# if format was set to 'CRAN' and not date range was specified, set it to origin and current date
+	if (format=="CRAN" & is.null(from) & is.null(to) & is.null(when)) {
+		date.range <- checkValidDates(NULL,NULL)
+	}
+
 	#######
 
 
@@ -158,6 +163,7 @@ if(!is.null(date.range)) {
 
                                 # clean the entrie 'all' totals per year...
                                 clean.data <- pckg.data[!as.character(pckg.data$Month)=="all",]
+				# set the date to the last day of the month
 				day.assign <- sapply(paste(clean.data$Month,clean.data$Year,sep='-'),last.day.month)
                                 pckg.dates <- paste(clean.data$Year,clean.data$Month,day.assign,sep='-')
 
