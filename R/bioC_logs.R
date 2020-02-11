@@ -52,6 +52,8 @@ bioC_downloads <- function(pckg=NULL, format="bioC", from=NULL,to=NULL, when=NUL
 
 	###############################
 
+	# define valid formats
+	fmt.opts <- c("bioC","CRAN")
 
 	# define date ranges for 'when'
 	when.opts <- c("ytd","year-to-date","last-year","year-from-now")
@@ -63,17 +65,22 @@ bioC_downloads <- function(pckg=NULL, format="bioC", from=NULL,to=NULL, when=NUL
 
 	# define day to when assign the value of downloads (bioConductor stats report monthly values)
 	# will pcik '28' as last day of the month, to avoid issues with Feb...
-	day.assign <- "28"
+	# day.assign <- "28"
 
 	# initialize container for results
 	pckgs.stats <-c() 
 
 
 	#######
+
 	# check valid argument
 	if (is.null(pckg) || !is.character(pckg)) {
-		warning("Must specify a valid package name!")
-		return(NULL)
+		stop("Must specify a valid package name!")
+	}
+
+	# check valid format
+	if (!is.character(format) | !(format %in% fmt.opts) ) {
+		stop("Invalid 'format'! Possible optiosn are: ", paste(fmt.opts,collapse=" "))
 	}
 
 	# check valid dates
@@ -105,6 +112,11 @@ bioC_downloads <- function(pckg=NULL, format="bioC", from=NULL,to=NULL, when=NUL
 		date.range <- checkValidDates(NULL,NULL)
 	}
 
+
+	# check that verbose is a boolean
+	if (!is.logical(verbose)) {
+		stop("'verbose' should be a Boolean variable, i.e. TRUE or FALSE!")
+	}
 	#######
 
 
