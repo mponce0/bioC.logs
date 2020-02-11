@@ -1,2 +1,2 @@
-February 2020: added options for indicating range of dates (to/from & when); adaptive last day of the month _ ver 1.1 
+February 2020: added options for indicating range of dates (to/from & when); adaptive last day of the month; more checks fron CRAN format (remove future dates) _ ver 1.1 
 February 2020: First release of "bioC.logs" package _ ver 1.0
