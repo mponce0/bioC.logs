@@ -1,7 +1,7 @@
 bioC_downloads <- function(pckg=NULL, format="bioC", from=NULL,to=NULL, when=NULL, verbose=TRUE) {
 #' function to download logs from bioConductor stats
 #' @param  pckg  list of packages names
-#' @param  format  two options: "bioC" (default) will report the downloads as reported by bioconductor, ie. "Year  Month  Nb_of_distinct_IPs  Nb_of_downloads"; or, "CRAN" will report as CRAN logs does, ie. "Date  counts  package_Name" (in cranlogs 'Nb_of_downloads' are referred as 'counts')
+#' @param  format  two options: "bioC" (default) will report the downloads as reported by bioconductor, ie. "Year  Month  Nb_of_distinct_IPs  Nb_of_downloads"; or, "CRAN" will report as CRAN logs does, ie. "Date  count  package_Name" (in cranlogs 'Nb_of_downloads' are referred as 'count')
 #' @param  from  date in "MM-YYYY" format, specifying the initial date to be considered (optional argument)
 #' @param  to  date in "MM-YYYY" format, specifying the final date to be considered (optional argument)
 #' @param  when  optional argument, to specify pre-defined range dates; ie. 'ytd', 'year-to-date', 'last-year'
@@ -171,7 +171,7 @@ if(!is.null(date.range)) {
 
 			# reformat data into CRAN format
                         if (format=="CRAN") {
-                                if (ind.pckg==1 && verbose) message("Data will be returned as 'date  counts  packageName'")
+                                if (ind.pckg==1 && verbose) message("Data will be returned as 'date  count  packageName'")
 
                                 # clean the entrie 'all' totals per year...
                                 clean.data <- pckg.data[!as.character(pckg.data$Month)=="all",]
@@ -182,8 +182,8 @@ if(!is.null(date.range)) {
 				#new.df <- data.frame( date=as.Date(paste0(day.assign,clean.data$Month,clean.data$Year), "%d%b%Y"),
 				new.df <- data.frame( date=as.Date(pckg.dates, '%Y-%b-%d'),
 				#.#.#new.df <- data.frame( date=as.Date(paste0(last.day.month(clean.data$Month,clean.data$Year),clean.data$Month,clean.data$Year), "%d%b%Y"),
-							# in cranlogs 'Nb_of_downloads' are referred as 'counts'
-							counts=as.numeric(clean.data$Nb_of_downloads),
+							# in cranlogs 'Nb_of_downloads' are referred as 'count'
+							count=as.numeric(clean.data$Nb_of_downloads),
 							package=pck )
 
 				# in cranlogs, also the dates are ordered...
