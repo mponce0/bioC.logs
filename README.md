@@ -14,8 +14,8 @@ The function accepts several arguments: `packages names`, `format`, `from/to` **
 
 argument	 | Description
 -----------|---------------
-`packages names` | is the name(s) of the package(s) you want to download the stats, for multiple package it should be a list of the packages names
-`format`     | accepts two options: `"bioC"` (default) will report the downloads as reported by bioconductor, ie. *"Year Month Nb_of_distinct_IPs Nb_of_downloads"*; or, `"CRAN"` will report as CRAN logs does, ie. *"Date  Nb_of_downloads package_Name"*
+`packages names` | is the name(s) of the package(s) for which you want to download the stats from; multiple packages should be indicated using a list of the packages names
+`format`     | accepts two options: `"bioC"` (default) will report the downloads as reported by bioconductor, ie. *"Year Month Nb_of_distinct_IPs Nb_of_downloads"*; or, `"CRAN"` will report as CRAN logs does, ie. *"Date  count  package_Name"*
 `from/to`    | optional arguments to indicate range of dates to recover the data within -- can NOT be used in combination with `when`
 `when`       | optional argument to specify the range of dates to recover the data within -- can NOT be used in combination with `from/to`; possible options are "`ytd`","`year-to-date`","`year-from-now`","`last-year`"
 `verbose`    | is a boolean flag indicating whether to print information about the processes
@@ -25,7 +25,7 @@ argument	 | Description
 ## Features
 
 * The function will return a list containing a dataframe per package entered with columns as indicated by the `format` argument.
-Notice that when the `format` is set to "CRAN", the date will be formatted to days-month-year. Because BioConductor reports only totals per month the "day" in this case will be set to the last date of the corresponding month/year.
+Notice that when the `format` is set to `"CRAN"`, the date will be formatted to days-month-year. Because BioConductor reports only totals per month, the "day" in this case will be set to the last date of the corresponding month/year.
 
 * The function will also attempt to report when a package names has been misspelled or just the server is not reachable.
 If you are receiving warning messages please check either of these situations.
@@ -69,7 +69,7 @@ library(bioC.logs)
 
 
 ## Examples
-You will need an active internet connection, as bioC.logs will download the
+You will need an active internet connection, as `bioC.logs` will download the
 reports from the BioConductor website on demand.
 
 ```
