@@ -102,7 +102,8 @@ edgeR.logs <- bioC_downloads("edgeR", from='03-2015',to='05-2016', format='bioC'
 
 ### Stats
 <p align="center">
-	<img src="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_bioC.logs.png" width="65%" />
+	<img src="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_bioC.logs.png" width="65%" alt="Live download stats" />
+	<figcaption>"Live" download stats, figure generated using "Visualize.CRAN.Downloads"</figcaption>
 </p>
 
 <object data="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_bioC.logs.pdf" type="application/pdf" width="700px" height="700px">
