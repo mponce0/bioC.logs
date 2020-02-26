@@ -1,7 +1,10 @@
 # bioC.logs
 
+<!-- badges: start -->
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/bioC.logs)](https://cran.r-project.org/package=bioC.logs)
+[![CRAN checks](https://cranchecks.info/badges/worst/bioC.logs)](https://cranchecks.info/pkgs/bioC.logs)
 [![Downloads](https://cranlogs.r-pkg.org/badges/bioC.logs)](https://cran.r-project.org/package=bioC.logs)
+<!-- badges: end -->
 
 ## Introduction
 This package allows you to download the statistics of BioConductor packages'
@@ -101,6 +104,13 @@ edgeR.logs <- bioC_downloads("edgeR", from='03-2015',to='05-2016', format='bioC'
 
 
 ### Stats
+<!-- badges: start -->
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/bioC.logs)](https://cran.r-project.org/package=bioC.logs)
+[![CRAN checks](https://cranchecks.info/badges/worst/bioC.logs)](https://cranchecks.info/pkgs/bioC.logs)
+[![Downloads last.mnth](https://cranlogs.r-pkg.org/badges/bioC.logs)](https://cran.r-project.org/package=bioC.logs)
+[![Downloads last.day](https://cranlogs.r-pkg.org/badges/last-week/bioC.logs)](https://cran.r-project.org/package=bioC.logs)
+[![Downloads last.day](https://cranlogs.r-pkg.org/badges/last-day/bioC.logs)](https://cran.r-project.org/package=bioC.logs)
+<!-- badges: end -->
 <p align="center">
 	<img src="https://github.com/mponce0/R.pckgs.stats/blob/master/DWNLDS_bioC.logs.png" width="65%" alt="Live download stats" />
 	<figcaption>"Live" download stats, figure generated using "Visualize.CRAN.Downloads"</figcaption>
