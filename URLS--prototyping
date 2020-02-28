@@ -10,10 +10,10 @@
  bioC_downloads(pckg, format, from, to, when, verbose)
 	bioC_download_engine(pckg, bioC.repo="bioc", target='stats', format, from, to, when, verbose)
 
- bioC_downloads_workflows()
+ bioC_downloads_workflows(pckg, format, from, to, when, verbose)
 	bioC_download_enginge(pckg, bioC.repo="workflows", target='stats', format, from, to, when, verbose)
 
- bioC_downloads_experiments()
+ bioC_downloads_experiments(pckg, format, from, to, when, verbose)
 	bioC_download_engine(pckg, bioC.repo="data-experiment", target='stats', format, from, to, when, verbose) 
 
 ### -- level ii: TOTALS
