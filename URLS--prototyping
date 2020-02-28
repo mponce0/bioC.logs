@@ -1,0 +1,70 @@
+# MAIN ENGINE  -- level 0
+ bioC_download_engine(pckg, bioC.repo="bioc|workflows|data-experiment", target='stats|scores', format, from,to, when, verbose)
+
+
+## WRAPPERs & APIs
+## -- level i: per package
+ bioC_download_stats(pckg, bioC.repo='bioc|workflows|data-experiment', format, from,to, when, verbose) 
+	 bioC_download_engine(pckg=pckg, bioC.repo, target='stats', format, from, to, when, verbose)
+
+ bioC_downloads(pckg, format, from, to, when, verbose)
+	bioC_download_engine(pckg, bioC.repo="bioc", target='stats', format, from, to, when, verbose)
+
+ bioC_downloads_workflows()
+	bioC_download_enginge(pckg, bioC.repo="workflows", target='stats', format, from, to, when, verbose)
+
+ bioC_downloads_experiments()
+	bioC_download_engine(pckg, bioC.repo="data-experiment", target='stats', format, from, to, when, verbose) 
+
+### -- level ii: TOTALS
+ bioC_downloads_totals(bioC.repo='bioc|workflows|experiments', verbose)
+	totals <- list()
+	for (i in bioc.repo) {
+		if (i %in% XXXX) {
+		if ( i == "bioc" ) totals <- list(totals,...)
+		if ( i == "workflows" ) totals <- list(totals,...)
+		if ( i == "data-experiment" ) totals <- list(totals,...)
+		} else {
+			stop("")
+		}
+	}
+
+ bioC_download_scores(bioC.repo='bioc|workflows|data-experiment', verbose)
+        bioC_download_engine(pckg="XXX", bioC.repo="YYY", target='scores', verbose)
+
+ bioC_download_totals()
+	bioC_download_engine(pckg="bioc_pckg", bioC.repo="bioc", target='stats', format, from, to, when, verbose) 
+
+ bioC_download_workflows_totals()
+	bioC_download_engine(pckg="workflows_pkg", bioC.repo="workflows", target='stats', format, from, to, when, verbose)
+
+ bioC_download_experiments_totals(bioC.repo='data-experiment')
+	bioC_download_engine(pckg="experiment_pkg", bioC.repo="data-experiment", target='stats', format, from, to, when, verbose)
+
+
+
+# SoftwarePackages
+TOTALS	<===  bioC.downloads()
+	http://bioconductor.org/packages/stats/bioc/bioc_pkg_stats.tab	<-==
+	http://bioconductor.org/packages/stats/bioc/bioc_pkg_scores.tab <-==
+
+Packages	<===  bioC.pkg_totals()
+	http://bioconductor.org/packages/stats/bioc/edgeR/edgeR_stats.tab <===
+
+
+# WorkflowsPackages
+TOTALS	<===  bioC.workflows_totals()
+	http://bioconductor.org/packages/stats/workflows/workflows_pkg_stats.tab  <-==
+	http://bioconductor.org/packages/stats/workflows/workflows_pkg_scores.tab <-==
+
+Packages	<===  bioC.workflows_downloads()
+	http://bioconductor.org/packages/stats/workflows/fluentGenomics/fluentGenomics_stats.tab <===
+
+
+# Data-ExperimentPackages
+TOTALS	<===  bioC.experiments_totals() 
+	http://bioconductor.org/packages/stats/data-experiment/experiment_pkg_stats.tab
+	http://bioconductor.org/packages/stats/data-experiment/experiment_pkg_scores.tab 
+
+Packages	<===  bioC.experiments_downloads()
+	http://bioconductor.org/packages/stats/data-experiment/pasilla/pasilla_stats.tab 
