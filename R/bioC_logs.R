@@ -1,7 +1,23 @@
-bioC_downloads <- function(pckg=NULL, format="bioC", from=NULL,to=NULL, when=NULL, verbose=TRUE) {
-#' function to download logs from bioConductor stats
+# Main Downloading 'general' Engine for "bioC.logs"
+#
+# -- M.Ponce
+
+####################################################################################
+####################################################################################
+#########################     MAIN DOWNLOADING ENGINE     ##########################
+####################################################################################
+####################################################################################
+
+###########################
+#####  l e v e l   0  #####
+###########################
+
+bioC_download_engine <- function(pckg=NULL, bioC.repo='bioc', target='stats', format="bioC", from=NULL,to=NULL, when=NULL, verbose=TRUE) {
+#' main downloading engine to download logs from BioConductor stats
 #' @param  pckg  list of packages names
-#' @param  format  two options: "bioC" (default) will report the downloads as reported by bioconductor, ie. "Year  Month  Nb_of_distinct_IPs  Nb_of_downloads"; or, "CRAN" will report as CRAN logs does, ie. "Date  count  package_Name" (in cranlogs 'Nb_of_downloads' are referred as 'count')
+#' @param  bioC.repo  one of the three repositories/categories of packages in BioConductor: "bioc", "workflows" or "data-experiment"
+#' @param  target  one of the two reported "scores" in BioConductor: "stats" (ie. nbr of downloads) or "scores"
+#' @param  format  two options: "bioC" (default) will report the downloads as reported by BioConductor, ie. "Year  Month  Nb_of_distinct_IPs  Nb_of_downloads"; or, "CRAN" will report as CRAN logs does, ie. "Date  count  package_Name" (in cranlogs 'Nb_of_downloads' are referred as 'count')
 #' @param  from  date in "MM-YYYY" format, specifying the initial date to be considered (optional argument)
 #' @param  to  date in "MM-YYYY" format, specifying the final date to be considered (optional argument)
 #' @param  when  optional argument, to specify pre-defined range dates; ie. 'ytd', 'year-to-date', 'last-year'
@@ -14,13 +30,15 @@ bioC_downloads <- function(pckg=NULL, format="bioC", from=NULL,to=NULL, when=NUL
 #' @export
 #'
 #' @examples
-#' bioC_downloads(c("ABarray","a4Classif"))
-#' bioC_downloads("edgeR", verbose=FALSE)
-#' edgeR.logs <- bioC_downloads("edgeR", format="CRAN")
-#' edgeR.logs <- bioC_downloads("edgeR", when='last-year', format='bioC')
-#' edgeR.logs <- bioC_downloads("edgeR", to='03-2015', format='bioC')
-#' edgeR.logs <- bioC_downloads("edgeR", from='03-2015', format='bioC')
-#' edgeR.logs <- bioC_downloads("edgeR", from='03-2015',to='05-2016', format='bioC')
+#' bioC_download_engine(c("ABarray","a4Classif"))
+#' bioC_download_engine("edgeR", target="scores", verbose=FALSE)
+#' edgeR.logs <- bioC_download_engine("edgeR", bioC.repo="bioc", format="CRAN")
+#' fluentGenomics.logs <- bioC_download_engine("fluentGenomics", bioC.repo='workflows',
+#'						when='last-year', format='bioC')
+#' edgeR.logs <- bioC_download_engine("edgeR", to='03-2015', format='bioC')
+#' pasilla.logs <- bioC_download_engine("pasilla", bioC.repo='data-experiment', target='scores',
+#'					from='03-2015', format='bioC')
+#' edgeR.logs <- bioC_download_engine("edgeR", from='03-2015',to='05-2016', format='bioC')
 
 	## function to inform the user about some general observations
 	bioC_disclaimer <- function() {
@@ -55,15 +73,35 @@ bioC_downloads <- function(pckg=NULL, format="bioC", from=NULL,to=NULL, when=NUL
 	# define valid formats
 	fmt.opts <- c("bioC","CRAN")
 
+	# define possible BioConductor repos: "bioc", "workflows", or "data-experiment"
+	valid.BioCrepos <- c("bioc", "workflows", "data-experiment")
+
+	# define possible BioConductor stats: 'stats' or 'scores'
+	valid.BioCtargets <- c("stats", "scores")
+	# define valid TOTAL KEYS
+	valid.BioCtotals <- c("bioc_pkg","workflows_pkg","experiment_pkg")
+
 	# define date ranges for 'when'
 	when.opts <- c("ytd","year-to-date","last-year","year-from-now")
 	date.range <- NULL
 
-	# Define bioConductor URL and file ending
-	bioC.url <- "http://bioconductor.org/packages/stats/bioc/"
-	ending <- "_stats.tab"
+	# CHECKS
+	# check that bioC.repo is a valid option
+	if (!(bioC.repo %in% valid.BioCrepos)) stop("Invalid ", bioC.repo,"! Valid options are:", paste(valid.BioCrepos,collpase=' '))
+	# check that target is a valid option
+	if (!(target %in% valid.BioCtargets)) stop("Invalid ", target,"! Valid options are:", paste(valid.BioCtargets,collapse=' '))
+	# checks for TOTALS...
+	going.for.totals <- FALSE
+	if ( length(pckg) == 1 )  {
+		if (pckg %in% valid.BioCtotals) going.for.totals <- TRUE
+	}
 
-	# define day to when assign the value of downloads (bioConductor stats report monthly values)
+	# Define BioConductor URL and file ending
+	conjuction.url <- "stats"
+	bioC.url <- paste0("http://bioconductor.org/packages/",conjuction.url,"/",bioC.repo,"/")
+	ending <- paste0("_",target,".tab")
+
+	# define day to when assign the value of downloads (BioConductor stats report monthly values)
 	# will pcik '28' as last day of the month, to avoid issues with Feb...
 	# day.assign <- "28"
 
@@ -129,6 +167,7 @@ bioC_downloads <- function(pckg=NULL, format="bioC", from=NULL,to=NULL, when=NUL
 		pck <- pckg[ind.pckg]
 
 		pckgFile <- paste0(pck,'/',pck,ending)
+		if (going.for.totals) pckgFile <- paste0(pck,ending)
 		pckg.URL <- paste0(bioC.url,pckgFile)
 
 		# Attempt to protect against bad internet conenction or misspelled package name
@@ -222,6 +261,8 @@ if(!is.null(date.range)) {
 	return(pckgs.stats)
 }
 
+####################################################################################
+####################################################################################
 
 ##### //////////////////////////////////////////////////////////////////////////// #####
 
