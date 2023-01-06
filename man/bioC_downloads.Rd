@@ -16,7 +16,7 @@ bioC_downloads(
 \arguments{
 \item{pckg}{list of packages names}
 
-\item{format}{two options: "bioC" (default) will report the downloads as reported by bioconductor, ie. "Year  Month  Nb_of_distinct_IPs  Nb_of_downloads"; or, "CRAN" will report as CRAN logs does, ie. "Date  counts  package_Name" (in cranlogs 'Nb_of_downloads' are referred as 'counts')}
+\item{format}{two options: "bioC" (default) will report the downloads as reported by bioconductor, ie. "Year  Month  Nb_of_distinct_IPs  Nb_of_downloads"; or, "CRAN" will report as CRAN logs does, ie. "Date  count  package_Name" (in cranlogs 'Nb_of_downloads' are referred as 'count')}
 
 \item{from}{date in "MM-YYYY" format, specifying the initial date to be considered (optional argument)}
 

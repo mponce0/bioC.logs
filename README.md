@@ -2,9 +2,14 @@
 
 <!-- badges: start -->
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/bioC.logs)](https://cran.r-project.org/package=bioC.logs)
-[![CRAN checks](https://cranchecks.info/badges/worst/bioC.logs)](https://cranchecks.info/pkgs/bioC.logs)
+[![cran checks](https://badges.cranchecks.info/worst/bioC.logs.svg)](https://cran.r-project.org/web/checks/check_results_bioC.logs.html)
+[![cran checks](https://badges.cranchecks.info/summary/bioC.logs.svg)](https://cran.r-project.org/web/checks/check_results_bioC.logs.html)
 [![Downloads](https://cranlogs.r-pkg.org/badges/bioC.logs)](https://cran.r-project.org/package=bioC.logs)
+<!--
+[![CRAN checks](https://cranchecks.info/badges/worst/bioC.logs)](https://cranchecks.info/pkgs/bioC.logs)
+-->
 <!-- badges: end -->
+
 
 ## Introduction
 This package allows you to download the statistics of BioConductor packages'
@@ -106,7 +111,8 @@ edgeR.logs <- bioC_downloads("edgeR", from='03-2015',to='05-2016', format='bioC'
 ### Stats
 <!-- badges: start -->
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/bioC.logs)](https://cran.r-project.org/package=bioC.logs)
-[![CRAN checks](https://cranchecks.info/badges/worst/bioC.logs)](https://cranchecks.info/pkgs/bioC.logs)
+[![cran checks](https://badges.cranchecks.info/worst/bioC.logs.svg)](https://cran.r-project.org/web/checks/check_results_bioC.logs.html)
+[![cran checks](https://badges.cranchecks.info/summary/bioC.logs.svg)](https://cran.r-project.org/web/checks/check_results_bioC.logs.html)
 [![Downloads last.mnth](https://cranlogs.r-pkg.org/badges/bioC.logs)](https://cran.r-project.org/package=bioC.logs)
 [![Downloads last.day](https://cranlogs.r-pkg.org/badges/last-week/bioC.logs)](https://cran.r-project.org/package=bioC.logs)
 [![Downloads last.day](https://cranlogs.r-pkg.org/badges/last-day/bioC.logs)](https://cran.r-project.org/package=bioC.logs)

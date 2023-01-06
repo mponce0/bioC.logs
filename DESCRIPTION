@@ -1,10 +1,10 @@
 Package: bioC.logs
 Type: Package
 Title: BioConductor Package Downloads Stats
-Version: 1.2
-Date: 2021-05-05
+Version: 1.2.1
+Date: 2023-01-06
 Author: Marcelo Ponce [aut, cre]
-Maintainer: Marcelo Ponce <mponce@scinet.utoronto.ca>
+Maintainer: Marcelo Ponce <m.ponce@utoronto.ca>
 Description: Download stats reported from the BioConductor.org stats website.
 Imports:
 Suggests:

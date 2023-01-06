@@ -1,3 +1,5 @@
+January 2023: adjusted references to update CRAN badges _ 1.2.1
+
 May 2021: added rmarkdown to list of "suggests" due to knitr changes (Apr. 2021) _ ver 1.2
 
 February 2020: added options for indicating range of dates (to/from & when); adaptive last day of the month; more checks from CRAN format (remove future dates) _ ver 1.1 
